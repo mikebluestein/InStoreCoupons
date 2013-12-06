@@ -155,11 +155,18 @@ namespace InStoreCoupons
 
             var qrCode = new CIQRCodeGenerator {
                 Message = NSData.FromString (text),
-                CorrectionLevel = "Q"
+				CorrectionLevel = "Q"
             }.OutputImage;
 
-            var ctx = CIContext.FromOptions (null);
-            CouponView.Image = UIImage.FromImage (ctx.CreateCGImage (qrCode, qrCode.Extent));
+			UIGraphics.BeginImageContext (new SizeF (qrCode.Extent.Width * 8, qrCode.Extent.Height * 8));
+			var cgCtx = UIGraphics.GetCurrentContext ();
+			var ciCtx = CIContext.FromOptions (null);
+			cgCtx.InterpolationQuality = CGInterpolationQuality.None;
+			cgCtx.DrawImage (cgCtx.GetClipBoundingBox (), ciCtx.CreateCGImage (qrCode, qrCode.Extent));
+			using (var image = UIGraphics.GetImageFromCurrentImageContext ()) {
+				CouponView.Image = image;
+			}
+			UIGraphics.EndImageContext();
         }
 
         class MySessionDelegate : MCSessionDelegate
