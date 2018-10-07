@@ -54,6 +54,31 @@ namespace XamariniOSiBeacon
 		{
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
+
+		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+		{
+			//base.ReceivedLocalNotification(application, notification);
+			//new UIAlertView("InStoreCoupons", notification.AlertBody, null, "OK", null).Show();
+			//var alert = new UIAlertController();
+			//alert.Title = "My Alert";
+			//alert.Message = "This is an alert.";
+			////alert.PreferredStyle = UIAlertControllerStyle.Alert;
+			//var alertAction = new UIAlertAction();
+			//alertAction.Title = "OK";
+			//			alert.AddAction(new UIAlertAction()(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: {
+			//				_ in 
+			//NSLog("The \"OK\" alert occured.")
+			//}))
+			//Present.present(alert, animated: true, completion: nil)
+			var alert = UIAlertController.Create("Alarm", "Wake up sleeping giant!", UIAlertControllerStyle.Alert);
+
+			alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Cancel, null));
+			alert.AddAction(UIAlertAction.Create("Snooze", UIAlertActionStyle.Default, action => Snooze()));
+			if (alert.PopoverPresentationController != null)
+				alert.PopoverPresentationController.BarButtonItem = myItem;
+			//PresentViewController(alert, animated: true, completionHandler: null);
+
+		}
 	}
 }
 
