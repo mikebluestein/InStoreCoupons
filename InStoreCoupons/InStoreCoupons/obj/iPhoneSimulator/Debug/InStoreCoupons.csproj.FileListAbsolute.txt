@@ -1,0 +1,2 @@
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/InStoreCoupons/obj/iPhoneSimulator/Debug/InStoreCoupons.csprojAssemblyReference.cache
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/InStoreCoupons/obj/iPhoneSimulator/Debug/InStoreCoupons.csproj.CoreCompileInputs.cache

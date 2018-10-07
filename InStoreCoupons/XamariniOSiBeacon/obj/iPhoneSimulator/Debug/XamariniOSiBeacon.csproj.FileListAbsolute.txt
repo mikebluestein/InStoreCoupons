@@ -1,0 +1,12 @@
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/bin/iPhoneSimulator/Debug/XamariniOSiBeacon.exe
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/bin/iPhoneSimulator/Debug/XamariniOSiBeacon.pdb
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/coremlc/_PartialAppManifest.items
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/coremlc/_BundleResourceWithLogicalName.items
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.csprojAssemblyReference.cache
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.csproj.CoreCompileInputs.cache
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.exe
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.pdb

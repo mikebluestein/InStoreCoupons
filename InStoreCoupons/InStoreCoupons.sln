@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InStoreCoupons", "InStoreCoupons\InStoreCoupons.csproj", "{B0F46FC9-D486-465F-A120-A9D58E414DEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamariniOSiBeacon", "XamariniOSiBeacon\XamariniOSiBeacon.csproj", "{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -25,6 +27,18 @@ Global
 		{B0F46FC9-D486-465F-A120-A9D58E414DEA}.Release|iPhone.Build.0 = Release|iPhone
 		{B0F46FC9-D486-465F-A120-A9D58E414DEA}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{B0F46FC9-D486-465F-A120-A9D58E414DEA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Debug|iPhone.Build.0 = Debug|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Release|iPhone.ActiveCfg = Release|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Release|iPhone.Build.0 = Release|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.AppStore|iPhone.ActiveCfg = Release|iPhone
+		{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}.AppStore|iPhone.Build.0 = Release|iPhone
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = InStoreCoupons\InStoreCoupons.csproj

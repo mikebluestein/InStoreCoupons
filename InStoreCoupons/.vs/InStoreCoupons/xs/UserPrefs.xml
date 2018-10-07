@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamariniOSiBeacon/AppDelegate.cs">
+    <Files>
+      <File FileName="InStoreCoupons/Main.cs" Line="4" Column="7" />
+      <File FileName="InStoreCoupons/Info.plist" />
+      <File FileName="XamariniOSiBeacon/AppDelegate.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InStoreCoupons" expanded="True" selected="True">
+            <Node name="InStoreCoupons" expanded="True" />
+            <Node name="XamariniOSiBeacon" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.XamariniOSiBeacon PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E8A0A738-D3AA-4B00-8507-6EFB9738B293">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.XamariniOSiBeacon>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.InStoreCoupons PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E8A0A738-D3AA-4B00-8507-6EFB9738B293" automaticSigning="False" />
+</Properties>
