@@ -1,5 +1,8 @@
 ﻿using System;
-
+using CoreBluetooth;
+using CoreLocation;
+using Foundation;
+using MultipeerConnectivity;
 using UIKit;
 
 namespace XamariniOSiBeacon

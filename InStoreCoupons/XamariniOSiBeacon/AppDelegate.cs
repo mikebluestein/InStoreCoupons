@@ -20,7 +20,8 @@ namespace XamariniOSiBeacon
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-
+			Window = new UIWindow(UIScreen.MainScreen.Bounds);
+			
 			return true;
 		}
 
@@ -58,25 +59,13 @@ namespace XamariniOSiBeacon
 		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
 		{
 			//base.ReceivedLocalNotification(application, notification);
-			//new UIAlertView("InStoreCoupons", notification.AlertBody, null, "OK", null).Show();
-			//var alert = new UIAlertController();
-			//alert.Title = "My Alert";
-			//alert.Message = "This is an alert.";
-			////alert.PreferredStyle = UIAlertControllerStyle.Alert;
-			//var alertAction = new UIAlertAction();
-			//alertAction.Title = "OK";
-			//			alert.AddAction(new UIAlertAction()(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: {
-			//				_ in 
-			//NSLog("The \"OK\" alert occured.")
-			//}))
-			//Present.present(alert, animated: true, completion: nil)
-			var alert = UIAlertController.Create("Alarm", "Wake up sleeping giant!", UIAlertControllerStyle.Alert);
+			var okayAlertController = UIAlertController.Create(notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+			okayAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
 
-			alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Cancel, null));
-			alert.AddAction(UIAlertAction.Create("Snooze", UIAlertActionStyle.Default, action => Snooze()));
-			if (alert.PopoverPresentationController != null)
-				alert.PopoverPresentationController.BarButtonItem = myItem;
-			//PresentViewController(alert, animated: true, completionHandler: null);
+			UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okayAlertController, true, null);
+
+			// reset our badge
+			//UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
 
 		}
 	}
