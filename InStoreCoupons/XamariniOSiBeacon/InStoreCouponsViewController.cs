@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using CoreBluetooth;
+using CoreFoundation;
+using CoreGraphics;
+using CoreImage;
 using CoreLocation;
 using Foundation;
 using MultipeerConnectivity;
@@ -76,7 +80,7 @@ namespace XamariniOSiBeacon
 				locationMgr.DidDetermineState += (object sender, CLRegionStateDeterminedEventArgs e) => {
 					if (e.State == CLRegionState.Inside)
 					{
-						if (!DealofDay.Enabled)
+						if (!Button.Enabled)
 						{
 							WelcomeBackCustomer();
 						}
@@ -84,12 +88,12 @@ namespace XamariniOSiBeacon
 				};
 
 				locationMgr.RegionLeft += (object sender, CLRegionEventArgs e) => {
-					DealofDay.Enabled = false;
+					Button.Enabled = false;
 				};
 
 				locationMgr.StartMonitoring(beaconRegion);
 
-				DealofDay.TouchUpInside += (sender, e) => {
+				Button.TouchUpInside += (sender, e) => {
 
 					StartMultipeerAdvertiser();
 				};
@@ -109,9 +113,9 @@ namespace XamariniOSiBeacon
 		void WelcomeBackCustomer()
 		{
 			var notification = new UILocalNotification { AlertBody = String.Format("Welcome back {0}", customer.FirstName) };
-			UIApplication.SharedApplication.PresentLocationNotificationNow(notification);
+			UIApplication.SharedApplication.PresentLocalNotificationNow(notification);
 
-			DealofDay.Enabled = true;
+			Button.Enabled = true;
 		}
 
 		void StartMultipeerAdvertiser()
@@ -158,7 +162,7 @@ namespace XamariniOSiBeacon
 
 		void CreateCouponImage(string text)
 		{
-			CouponLabel.Text = text;
+			Label.Text = text;
 
 			var qrCode = new CIQRCodeGenerator
 			{
@@ -166,14 +170,14 @@ namespace XamariniOSiBeacon
 				CorrectionLevel = "Q"
 			}.OutputImage;
 
-			UIGraphics.BeginImageContext(new SizeF(qrCode.Extent.Width * 8, qrCode.Extent.Height * 8));
+			UIGraphics.BeginImageContext(new SizeF((float)(qrCode.Extent.Width * 8), (float)(qrCode.Extent.Height * 8)));
 			var cgCtx = UIGraphics.GetCurrentContext();
 			var ciCtx = CIContext.FromOptions(null);
 			cgCtx.InterpolationQuality = CGInterpolationQuality.None;
 			cgCtx.DrawImage(cgCtx.GetClipBoundingBox(), ciCtx.CreateCGImage(qrCode, qrCode.Extent));
 			using (var image = UIGraphics.GetImageFromCurrentImageContext())
 			{
-				CouponView.Image = image;
+				ImageView.Image = image;
 			}
 			UIGraphics.EndImageContext();
 		}
@@ -215,10 +219,14 @@ namespace XamariniOSiBeacon
 			{
 			}
 
-			public override void DidFinishReceivingResource(MCSession session, string resourceName, MCPeerID formPeer, NSUrl localUrl, out NSError error)
+			public override void DidFinishReceivingResource(MCSession session, string resourceName, MCPeerID fromPeer, NSUrl localUrl, NSError error)
 			{
 				error = null;
 			}
+			//public override void DidFinishReceivingResource(MCSession session, string resourceName, MCPeerID formPeer, NSUrl localUrl, out NSError error)
+			//{
+				//error = null;
+			//}
 
 			public override void DidReceiveStream(MCSession session, NSInputStream stream, string streamName, MCPeerID peerID)
 			{

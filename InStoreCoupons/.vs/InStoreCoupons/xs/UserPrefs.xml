@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="XamariniOSiBeacon/InStoreCouponsViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamariniOSiBeacon/InStoreCouponsViewController.designer.cs">
     <Files>
       <File FileName="InStoreCoupons/Main.cs" Line="4" Column="7" />
       <File FileName="InStoreCoupons/Info.plist" />
@@ -9,23 +9,9 @@
       <File FileName="InStoreCoupons/InStoreCouponsViewController.cs" Line="110" Column="22" />
       <File FileName="XamariniOSiBeacon/Main.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="XamariniOSiBeacon/AppDelegate.cs" Line="18" Column="3" NotebookId="1" />
-      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.cs" Line="112" Column="36" NotebookId="1" />
+      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.cs" Line="114" Column="3" NotebookId="1" />
+      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.designer.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="InStoreCoupons" expanded="True">
-            <Node name="InStoreCoupons" expanded="True">
-              <Node name="InStoreCouponsViewController.cs" expanded="True" />
-            </Node>
-            <Node name="XamariniOSiBeacon" expanded="True">
-              <Node name="InStoreCouponsViewController.cs" expanded="True" />
-              <Node name="InStoreCouponsViewController.xib" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.XamariniOSiBeacon PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E8A0A738-D3AA-4B00-8507-6EFB9738B293">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
