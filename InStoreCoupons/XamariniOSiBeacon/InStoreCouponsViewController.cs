@@ -34,7 +34,7 @@ namespace XamariniOSiBeacon
 		MyBrowserDelegate browserDel;
 		NSDictionary dict;
 
-		public InStoreCouponsViewController() : base(UserInterfaceIdiomIsPhone ? "InStoreCouponsViewController_iPhone" : "InStoreCouponsViewController_iPad", null)
+		public InStoreCouponsViewController() : base(UserInterfaceIdiomIsPhone ? "InStoreCouponsViewController" : "InStoreCouponsViewController", null)
 		{
 			View.BackgroundColor = UIColor.White;
 			customer = new Customer { FirstName = "Rupert", LastName = "Smith", Id = 1 };

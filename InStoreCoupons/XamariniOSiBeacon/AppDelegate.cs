@@ -9,7 +9,7 @@ namespace XamariniOSiBeacon
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-
+		InStoreCouponsViewController viewController;
 		public override UIWindow Window
 		{
 			get;
@@ -21,7 +21,10 @@ namespace XamariniOSiBeacon
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 			Window = new UIWindow(UIScreen.MainScreen.Bounds);
-			
+
+			viewController = new InStoreCouponsViewController();
+			Window.RootViewController = viewController;
+			Window.MakeKeyAndVisible();
 			return true;
 		}
 

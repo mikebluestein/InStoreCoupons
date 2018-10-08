@@ -10,3 +10,10 @@
 /Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.csproj.CoreCompileInputs.cache
 /Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.exe
 /Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/XamariniOSiBeacon.pdb
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Default@2x.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Default-568h@2x.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Default-Landscape@2x.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Default-Portrait@2x.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Icon-60@2x.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Icon-76.png
+/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/obj/iPhoneSimulator/Debug/optimized/Icon-76@2x.png
