@@ -94,7 +94,7 @@ namespace XamariniOSiBeacon
 			}
 
 			// The next 20 lines were added purely for testing purposes and can be deleted!
-			if (e.Beacons[0] != null)
+			if (e.Beacons.Length > 0)
 			{
 				switch (e.Beacons[0].Proximity)
 				{
@@ -103,9 +103,12 @@ namespace XamariniOSiBeacon
 						break;
 					case CLProximity.Near:
 						View.BackgroundColor = UIColor.Gray;
+						var notification = new UILocalNotification { AlertBody = String.Format("Welcome {0} to the Mysterious Spectrum Plaza", customer.FirstName) };
+						UIApplication.SharedApplication.PresentLocalNotificationNow(notification);
+						Console.WriteLine("You're Near");
 						break;
 					case CLProximity.Immediate:
-						View.BackgroundColor = UIColor.Blue;
+						View.BackgroundColor = UIColor.Red;
 						break;
 					case CLProximity.Unknown:
 						View.BackgroundColor = UIColor.Yellow;
