@@ -35,5 +35,21 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use low-energy Bluetooth and iBeacon devices installed at the airport to find you inside the hall, and provide relevant information. You don’t need to know security wait times when you’re already at the gate, do you?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>NSLocationAlwaysAndWhenInUseUsageDescription</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>bluetooth-peripheral</string>
+		<string>bluetooth-central</string>
+	</array>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>iBeacon use</string>
+	<key>Custom Property</key>
+	<string></string>
 </dict>
 </plist>

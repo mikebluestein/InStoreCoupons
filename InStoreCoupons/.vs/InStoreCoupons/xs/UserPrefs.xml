@@ -1,27 +1,12 @@
 ﻿<Properties StartupConfiguration="{FE8E5639-85FF-4D9B-B325-BC17D1E8D144}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamariniOSiBeacon/InStoreCouponsViewController.cs">
     <Files>
       <File FileName="XamariniOSiBeacon/Main.cs" Line="12" Column="1" />
-      <File FileName="XamariniOSiBeacon/AppDelegate.cs" Line="27" Column="31" />
-      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.cs" Line="37" Column="53" />
-      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.designer.cs" Line="22" Column="22" />
+      <File FileName="XamariniOSiBeacon/AppDelegate.cs" Line="65" Column="1" />
+      <File FileName="XamariniOSiBeacon/InStoreCouponsViewController.cs" Line="41" Column="47" />
       <File FileName="InStoreCoupons/Info.plist" />
+      <File FileName="XamariniOSiBeacon/Info.plist" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="InStoreCoupons" expanded="True">
-            <Node name="InStoreCoupons" expanded="True">
-              <Node name="AppDelegate.cs" selected="True" />
-            </Node>
-            <Node name="XamariniOSiBeacon" expanded="True">
-              <Node name="Resources" expanded="True" />
-              <Node name="InStoreCouponsViewController.cs" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.XamariniOSiBeacon PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.f175be1090515cce3470d39862184b6b7e797584" automaticSigning="False" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
@@ -29,6 +14,14 @@
     <BreakpointStore>
       <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/AppDelegate.cs" relfile="XamariniOSiBeacon/AppDelegate.cs" line="65" column="68" />
       <Catchpoint exceptionName="System.Exception" includeSubclasses="True" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="124" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="135" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="158" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="167" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="333" column="17" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="102" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="94" column="1" />
+      <Breakpoint file="/Users/saamer.mansoor/Documents/GitHub/iBeaconXamiOSInStoreCoupons/InStoreCoupons/XamariniOSiBeacon/InStoreCouponsViewController.cs" relfile="XamariniOSiBeacon/InStoreCouponsViewController.cs" line="120" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

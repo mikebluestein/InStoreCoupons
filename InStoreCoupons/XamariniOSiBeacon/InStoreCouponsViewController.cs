@@ -13,253 +13,87 @@ namespace XamariniOSiBeacon
 {
 	public partial class InStoreCouponsViewController : UIViewController
 	{
-		static readonly string storeId = "BigStore42";
-		static readonly string serviceType = "InStoreCoupons";
-		static readonly string uuid = "85A622A1-C5FE-4E75-ACF7-013656D418A7";
-
-		static bool UserInterfaceIdiomIsPhone
-		{
-			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
-		}
+		static readonly string storeId = "ice";
+		static readonly string uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
+		static readonly ushort major = 31892;
+		static readonly ushort minor = 65114;
 
 		Customer customer;
-		CBPeripheralManager peripheralMgr;
-		BTPeripheralDelegate peripheralDelegate;
 		CLLocationManager locationMgr;
-		MCSession session;
-		MCPeerID peer;
-		MCBrowserViewController browser;
-		MCAdvertiserAssistant assistant;
-		MySessionDelegate sessionDel;
-		MyBrowserDelegate browserDel;
-		NSDictionary dict;
+		CLBeaconRegion beaconRegion;
+		bool isAdventureInProgress = false;
 
-		public InStoreCouponsViewController() : base(UserInterfaceIdiomIsPhone ? "InStoreCouponsViewController" : "InStoreCouponsViewController", null)
+		public InStoreCouponsViewController() : base("InStoreCouponsViewController", null)
 		{
 			View.BackgroundColor = UIColor.White;
 			customer = new Customer { FirstName = "Rupert", LastName = "Smith", Id = 1 };
-
-			sessionDel = new MySessionDelegate(this);
-			browserDel = new MyBrowserDelegate();
-			dict = new NSDictionary();
 		}
-
+		#region App LifeCycle
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
 			var storeUUID = new NSUuid(uuid);
-			var beaconRegion = new CLBeaconRegion(storeUUID, storeId)
+
+			// Use this to get information only of one specific iBeacon
+			// beaconRegion = new CLBeaconRegion(storeUUID, major, minor, storeId)
+			beaconRegion = new CLBeaconRegion(storeUUID, storeId)
 			{
 				NotifyEntryStateOnDisplay = true,
 				NotifyOnEntry = true,
 				NotifyOnExit = true
 			};
+			isAdventureInProgress = true;
+			locationMgr = new CLLocationManager();
+			locationMgr.DidDetermineState += LocationMgr_DidDetermineState;
+			locationMgr.DidRangeBeacons += LocationMgr_DidRangeBeacons;
 
-			if (!UserInterfaceIdiomIsPhone)
-			{
-
-				NSMutableDictionary peripheralData = beaconRegion.GetPeripheralData(new NSNumber(-59));
-				peripheralDelegate = new BTPeripheralDelegate();
-				peripheralMgr = new CBPeripheralManager(peripheralDelegate, DispatchQueue.DefaultGlobalQueue);
-				peripheralMgr.StartAdvertising(peripheralData);
-
-			}
-			else
-			{
-
-				locationMgr = new CLLocationManager();
-
-				locationMgr.RegionEntered += (object sender, CLRegionEventArgs e) => {
-					if (e.Region.Identifier == storeId)
-					{
-						WelcomeBackCustomer();
-					}
-				};
-
-				locationMgr.DidDetermineState += (object sender, CLRegionStateDeterminedEventArgs e) => {
-					if (e.State == CLRegionState.Inside)
-					{
-						if (!Button.Enabled)
-						{
-							WelcomeBackCustomer();
-						}
-					}
-				};
-
-				locationMgr.RegionLeft += (object sender, CLRegionEventArgs e) => {
-					Button.Enabled = false;
-				};
-
-				locationMgr.StartMonitoring(beaconRegion);
-
-				Button.TouchUpInside += (sender, e) => {
-
-					StartMultipeerAdvertiser();
-				};
-			}
+			StartBeaconMonitoring();
 		}
 
 		public override void ViewDidAppear(bool animated)
 		{
 			base.ViewDidAppear(animated);
-
-			if (!UserInterfaceIdiomIsPhone)
-			{
-				StartMultipeerBrowser();
-			}
 		}
+		#endregion App LifeCycle
 
-		void WelcomeBackCustomer()
+		#region Private Methods
+		void StartBeaconMonitoring()
 		{
-			var notification = new UILocalNotification { AlertBody = String.Format("Welcome back {0}", customer.FirstName) };
-			UIApplication.SharedApplication.PresentLocalNotificationNow(notification);
+			var isAvailable = CLLocationManager.IsMonitoringAvailable(typeof(CLRegion));
 
-			Button.Enabled = true;
+			if (CLLocationManager.IsRangingAvailable && isAvailable)
+			{
+				locationMgr.StartRangingBeacons(beaconRegion);
+				locationMgr.StartMonitoring(beaconRegion);
+			}
+			Console.WriteLine("CLLocationManager.IsRangingAvailable && CLLocationManager.IsMonitoringAvailable(typeof(CLRegion)");
+			Console.WriteLine(CLLocationManager.IsRangingAvailable.ToString() + " & " + CLLocationManager.IsMonitoringAvailable(typeof(CLRegion)));
 		}
+		#endregion Private Methods
 
-		void StartMultipeerAdvertiser()
+		#region Event Handlers
+		void LocationMgr_DidDetermineState(object sender, CLRegionStateDeterminedEventArgs e)
 		{
-			peer = new MCPeerID(customer.ToString());
-
-			session = new MCSession(peer)
+			if (e.State == CLRegionState.Inside)
 			{
-				Delegate = sessionDel
-			};
-
-			assistant = new MCAdvertiserAssistant(serviceType, dict, session);
-			assistant.Start();
+				var notification = new UILocalNotification { AlertBody = String.Format("Welcome back {0}", customer.FirstName) };
+				UIApplication.SharedApplication.PresentLocalNotificationNow(notification);
+				isAdventureInProgress = !isAdventureInProgress;
+				Console.WriteLine("CLRegionState.Inside");
+			}
+			Console.WriteLine("CLRegionState.NotInside");
 		}
 
-		void StartMultipeerBrowser()
+		void LocationMgr_DidRangeBeacons(object sender, CLRegionBeaconsRangedEventArgs e)
 		{
-			peer = new MCPeerID(storeId);
-
-			session = new MCSession(peer)
+			foreach(var beacon in e.Beacons)
 			{
-				Delegate = sessionDel
-			};
-
-			browser = new MCBrowserViewController(serviceType, session)
-			{
-				Delegate = browserDel,
-				ModalPresentationStyle = UIModalPresentationStyle.None
-			};
-
-			PresentViewController(browser, true, null);
+				Console.WriteLine("BEACON " + beacon.DebugDescription + beacon.Major + beacon.ProximityUuid);
+			}
+			Console.WriteLine("LocationMgr_DidRangeBeacons function");
 		}
-
-		void SendCoupon(string message, MCPeerID peer)
-		{
-			NSError error;
-
-			session.SendData(
-			    NSData.FromString(message),
-			    new MCPeerID[] { peer },
-			    MCSessionSendDataMode.Reliable,
-			    out error);
-		}
-
-		void CreateCouponImage(string text)
-		{
-			Label.Text = text;
-
-			var qrCode = new CIQRCodeGenerator
-			{
-				Message = NSData.FromString(text),
-				CorrectionLevel = "Q"
-			}.OutputImage;
-
-			UIGraphics.BeginImageContext(new SizeF((float)(qrCode.Extent.Width * 8), (float)(qrCode.Extent.Height * 8)));
-			var cgCtx = UIGraphics.GetCurrentContext();
-			var ciCtx = CIContext.FromOptions(null);
-			cgCtx.InterpolationQuality = CGInterpolationQuality.None;
-			cgCtx.DrawImage(cgCtx.GetClipBoundingBox(), ciCtx.CreateCGImage(qrCode, qrCode.Extent));
-			using (var image = UIGraphics.GetImageFromCurrentImageContext())
-			{
-				ImageView.Image = image;
-			}
-			UIGraphics.EndImageContext();
-		}
-
-		class MySessionDelegate : MCSessionDelegate
-		{
-			InStoreCouponsViewController vc;
-
-			public MySessionDelegate(InStoreCouponsViewController vc)
-			{
-				this.vc = vc;
-			}
-
-			public override void DidChangeState(MCSession session, MCPeerID peerID, MCSessionState state)
-			{
-				switch (state)
-				{
-					case MCSessionState.Connected:
-						if (peerID.DisplayName != storeId)
-						{
-							vc.SendCoupon("buy 1 widget, get 1 free", peerID);
-						}
-						break;
-					case MCSessionState.Connecting:
-					case MCSessionState.NotConnected:
-						break;
-				}
-			}
-
-			public override void DidReceiveData(MCSession session, NSData data, MCPeerID peerID)
-			{
-				InvokeOnMainThread(() => {
-					string s = data.ToString();
-					vc.CreateCouponImage(s);
-				});
-			}
-
-			public override void DidStartReceivingResource(MCSession session, string resourceName, MCPeerID fromPeer, NSProgress progress)
-			{
-			}
-
-			public override void DidFinishReceivingResource(MCSession session, string resourceName, MCPeerID fromPeer, NSUrl localUrl, NSError error)
-			{
-				error = null;
-			}
-			//public override void DidFinishReceivingResource(MCSession session, string resourceName, MCPeerID formPeer, NSUrl localUrl, out NSError error)
-			//{
-				//error = null;
-			//}
-
-			public override void DidReceiveStream(MCSession session, NSInputStream stream, string streamName, MCPeerID peerID)
-			{
-			}
-		}
-
-		class MyBrowserDelegate : MCBrowserViewControllerDelegate
-		{
-			public override void DidFinish(MCBrowserViewController browserViewController)
-			{
-				InvokeOnMainThread(() => {
-					browserViewController.DismissViewController(true, null);
-				});
-			}
-
-			public override void WasCancelled(MCBrowserViewController browserViewController)
-			{
-				InvokeOnMainThread(() => {
-					browserViewController.DismissViewController(true, null);
-				});
-			}
-		}
-
-		class BTPeripheralDelegate : CBPeripheralManagerDelegate
-		{
-			public override void StateUpdated(CBPeripheralManager peripheral)
-			{
-				if (peripheral.State == CBPeripheralManagerState.PoweredOn)
-				{
-					Console.WriteLine("powered on");
-				}
-			}
-		}
+  		#endregion Event Handlers
 	}
 }
 

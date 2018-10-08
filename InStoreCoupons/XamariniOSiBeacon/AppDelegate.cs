@@ -66,10 +66,6 @@ namespace XamariniOSiBeacon
 			okayAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
 
 			UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(okayAlertController, true, null);
-
-			// reset our badge
-			//UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
-
 		}
 	}
 }
