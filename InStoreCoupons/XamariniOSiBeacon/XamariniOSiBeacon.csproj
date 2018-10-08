@@ -125,7 +125,6 @@
     <BundleResource Include="Resources\Icon-60%402x.png" />
     <BundleResource Include="Resources\Icon-76.png" />
     <BundleResource Include="Resources\Icon-76%402x.png" />
-    <BundleResource Include="estimote.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

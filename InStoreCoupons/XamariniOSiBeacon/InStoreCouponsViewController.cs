@@ -45,6 +45,7 @@ namespace XamariniOSiBeacon
 			};
 			isAdventureInProgress = true;
 			locationMgr = new CLLocationManager();
+			locationMgr.RequestWhenInUseAuthorization();
 			locationMgr.DidDetermineState += LocationMgr_DidDetermineState;
 			locationMgr.DidRangeBeacons += LocationMgr_DidRangeBeacons;
 
@@ -91,6 +92,29 @@ namespace XamariniOSiBeacon
 			{
 				Console.WriteLine("BEACON " + beacon.DebugDescription + beacon.Major + beacon.ProximityUuid);
 			}
+
+			// The next 20 lines were added purely for testing purposes and can be deleted!
+			if (e.Beacons[0] != null)
+			{
+				switch (e.Beacons[0].Proximity)
+				{
+					case CLProximity.Far:
+						View.BackgroundColor = UIColor.Black;
+						break;
+					case CLProximity.Near:
+						View.BackgroundColor = UIColor.Gray;
+						break;
+					case CLProximity.Immediate:
+						View.BackgroundColor = UIColor.Blue;
+						break;
+					case CLProximity.Unknown:
+						View.BackgroundColor = UIColor.Yellow;
+						break;
+				}
+			}
+			else
+				View.BackgroundColor = UIColor.White;
+
 			Console.WriteLine("LocationMgr_DidRangeBeacons function");
 		}
   		#endregion Event Handlers
